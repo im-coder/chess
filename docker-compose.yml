@@ -6,22 +6,26 @@ services:
     ports:
       - 8100:80
     volumes:
-      - ./:/var/www
+      - ./:/var/www/html
       - ./docker/nginx/conf.d:/etc/nginx/conf.d
-  php:
-    image: php:7.2-fpm
+    depends_on:
+      - web
+  web:
+    build:
+      context: .
     volumes:
-      - ./:/var/www
+      - ./:/var/www/html
+    depends_on:
+      - db
   db:
     image: mysql:latest
     environment:
-      MYSQL_DATABASE: chess
-      MYSQL_ROOT_PASSWORD: rootchess
-      MYSQL_USER: chessuser
-      MYSQL_PASSWORD: chesspass
+      - MYSQL_ROOT_PASSWORD=rootchess
+      - MYSQL_DATABASE=chess
+      - MYSQL_USER=chessuser
+      - MYSQL_PASSWORD=chesspass
     ports:
       - 3306:3306
     volumes:
-      - db_data:/var/lib/mysql
-volumes:
-  db_data:
+      - ./docker/mysql:/var/lib/mysql
+    command: ['--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci','--default-authentication-plugin=mysql_native_password']
