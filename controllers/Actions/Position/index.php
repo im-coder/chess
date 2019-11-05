@@ -6,7 +6,7 @@ use micro\controllers\Actions\ApiAction;
 use micro\models\Games;
 
 /**
- * Получение игровой партии по номеру
+ * Получение шахматной позиции по номеру
  */
 class Index extends ApiAction
 {

@@ -7,7 +7,7 @@ use micro\models\Games;
 use yii\base\InvalidArgumentException;
 
 /**
- * Обновление щахматной позиции
+ * Обновление шахматной позиции
  */
 class Update extends ApiAction
 {

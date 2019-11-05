@@ -11,7 +11,7 @@ use yii\web\Controller;
 use yii\web\Response;
 
 /**
- * Class ApiController
+ * Контроллер для API запросов по манипулированию шахматными позициями
  * @package micro\controllers
  */
 class PositionController extends Controller

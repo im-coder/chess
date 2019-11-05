@@ -7,7 +7,7 @@ use micro\models\Games;
 use yii\base\InvalidArgumentException;
 
 /**
- * Создание щахматной позиции
+ * Создание шахматной позиции
  */
 class Create extends ApiAction
 {

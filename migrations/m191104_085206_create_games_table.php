@@ -3,7 +3,7 @@
 use yii\db\Migration;
 
 /**
- * Таблица для хранения списока партий
+ * Таблица для хранения списка партий
  */
 class m191104_085206_create_games_table extends Migration
 {

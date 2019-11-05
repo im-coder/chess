@@ -2,7 +2,6 @@
 
 namespace micro\models;
 
-use function array_map;
 use yii\base\InvalidArgumentException;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -58,7 +57,7 @@ class Games extends ActiveRecord
     }
 
     /**
-     * Поиск модели по ее названию
+     * Поиск модели по ее номеру
      * @param int $id
      * @return Games|null
      */
@@ -81,7 +80,7 @@ class Games extends ActiveRecord
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'positions' => array_map(function($position) {
+            'positions' => \array_map(function($position) {
                 return $position->getAttributes(['board','figure','color']);
             }, $this->positions),
         ];
